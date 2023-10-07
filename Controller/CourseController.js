@@ -1,6 +1,8 @@
 const Course = require('../models/course');
 const {requireAuth} = require('../Middleware/AuthMW');
 
+
+
 module.exports.course_create_get = (req,res) =>{
     {
         res.render('createCourse',{title:'Create Course',siteName:'A Class Coding'})
@@ -10,7 +12,19 @@ module.exports.course_create_get = (req,res) =>{
 module.exports.course_create_post = (req,res) =>{
     {
         console.log(req.body);
-        const course = new Course(req.body);
+        const name = req.body.CourseName;
+        const number = req.body.CourseNumber;
+        const des = req.body.CourseDescription;
+        const ch = req.body.CreditHours;
+        const UserID = req.cookies.Id;
+        const course = new Course({
+            CourseName:name,
+            CourseNumber:number,
+            CourseDescription:des,
+            CreditHours:ch,
+            UserId: UserID
+        });
+        
         course.save()
         .then(result =>{
             res.redirect('/teacher');

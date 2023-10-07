@@ -33,12 +33,12 @@ app.use((req,res, next) => {
 app.use(AuthRoutes);
 app.use(CourseRoutes);
 
-
+//Home Page
 app.get('/',(req,res)=>{
     res.render('index',{title:'Home',siteName:'A Class Coding'})
 });
 
-
+//404 Page Not Found catch all
 app.use((req,res)=> {
     res.status(404).render('404',{title:'404:Page Not Found',siteName:'404:Page Not Found'})
 });

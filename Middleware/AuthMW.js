@@ -1,5 +1,7 @@
+//Dependencies
 const jwt = require('jsonwebtoken');
 
+//Teacher Auth Middleware checks jwt and cookie for teacher
 const TeacherAuth = (req, res, next) =>{
     const IsTeacher = req.cookies.Teacher;
     const token = req.cookies.jwt;
@@ -27,7 +29,8 @@ const TeacherAuth = (req, res, next) =>{
         res.render('login',{title:'Login',siteName:'A Class Coding'});
     };
 };
-
+//Student Auth Middleware only checks for valid user 
+// Technically teachers can see student page
 const StudentAuth = (req, res, next) =>{
     const token = req.cookies.jwt;
     

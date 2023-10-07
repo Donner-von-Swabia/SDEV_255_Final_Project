@@ -74,6 +74,7 @@ module.exports.login_post = async (req, res) => {
     if(user.IsTeacher){
         res.cookie('Teacher', true, {httpOnly: true, maxAge: maxAge * 1000})
       }
+    res.cookie('Id',user.id,{httpOnly: true, maxAge: maxAge * 1000})
     res.status(200).json({user : user._id})
     
   }

@@ -1,5 +1,8 @@
+//Dependencies
 const { Router } = require('express');
 const router = Router();
+
+//Files
 const courseController = require('../Controller/CourseController')
 const {TeacherAuth,StudentAuth} = require('../Middleware/AuthMW')
 

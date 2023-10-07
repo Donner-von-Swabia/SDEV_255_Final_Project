@@ -16,6 +16,10 @@ const CourseSchema = new Schema({
     },
     CreditHours:{
         type:Number,
+    },
+    UserId:{
+        type: String,
+        required: true
     }},{timestamps:true});
 
 const Course = mongoose.model('Course', CourseSchema);
