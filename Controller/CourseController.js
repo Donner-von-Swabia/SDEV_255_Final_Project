@@ -67,7 +67,8 @@ module.exports.updateCourse_post = (req,res) => {
 };
 
 module.exports.teacher_get = (req,res) =>{
-    Course.find().sort({createAt: -1})
+    const UserID = req.cookies.Id;
+    Course.find({"UserId":UserID}).sort({createAt: -1})
     .then(result=>{
         res.render('teacher',{course:result,title:'Teacher',siteName:'A Class Coding: Teachers'});
     })
