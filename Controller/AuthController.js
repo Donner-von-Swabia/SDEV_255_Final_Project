@@ -56,6 +56,7 @@ module.exports.signup_post = async (req, res) => {
     if(user.IsTeacher){
         res.cookie('Teacher', true, {httpOnly: true, maxAge: maxAge * 1000})
       }
+    res.cookie('Id',user.id,{httpOnly: true, maxAge: maxAge * 1000})
     res.status(201).json({user : user._id});
   }
   catch(err) {
@@ -89,5 +90,6 @@ module.exports.login_post = async (req, res) => {
 module.exports.logout_get = (req,res) =>{
   res.cookie('jwt',"",{maxAge: 1})
   res.cookie('Teacher','',{maxAge:1})
+  res.cookie('Id','',{maxAge:1})
   res.redirect('/')
 }
