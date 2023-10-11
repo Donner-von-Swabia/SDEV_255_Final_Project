@@ -26,16 +26,101 @@
             text-decoration: none;
         }
         body{
+            position: relative;
+            min-height: 100vh;
+            width:100%;
+            overflow: hidden;
             background: rgb(13,26,42);
             background: linear-gradient(to right,#0d1a2a,#304c79,#4A668D,#304c79,#0d1a2a);
-            max-width: 1200px;
+            
             
             margin: 20px auto;
             padding: 0 20px;
 
         }
         footer{
+            position: fixed;
+            padding-left: 30vw;
             color:aliceblue;
             margin: 80px auto 20px;
             font-size: .5em;
+        }
+        li{
+            list-style-type: none;
+        }
+        .sidebar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 240px;
+            background: #11101d ;
+            padding: 6px 14px;
+        }
+        .sidebar .logo_content .logo{
+            color: #fff;
+            display: flex;
+            height: 50px;
+            width: 100%;
+            align-items: center;
+
+        }
+        .logo_content .logo i{
+            font-size: 5em;
+            margin-right: 5px;
+        }
+        .logo .logo_content .logo_name{
+            font-size: 25px;
+            font-weight: 400;
+        }
+        .sidebar #btn{
+            position: absolute;
+            color:#fff;
+            left: 90%;
+            top: 6px;
+            font-size: 2.5em;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            line-height: 50px;
+            transform: translateX(-50%);
+        }
+        .sidebar ul{
+            margin-top: 20px;
+            
+        }
+        .sidebar ul li{
+            list-style: none;
+            position: relative;
+            width: 100%;
+            height: 50px;
+            border-top: 20px;
+            margin: 0 5px;
+            
+        }
+        .sidebar ul li a{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5em;
+            color:#fff;
+            display: flex;
+            align-items:center;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            border-radius: 12px;
+            
+        }
+        .sidebar ul li a:hover{
+            color: #11101d;
+            background: #fff;
+        }
+        .sidebar ul li a i{
+            height: 50px;
+            min-width: 50px;
+            border-radius: 12px;
+            line-height: 50px;
+            text-align: center;
+
+        }
+        .sidebar ul.nav_list{
+            padding-left: 0;
         }
