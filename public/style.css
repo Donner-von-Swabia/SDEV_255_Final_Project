@@ -25,6 +25,19 @@
             color:aliceblue;
             text-decoration: none;
         }
+        .LoginDiv{
+            position:relative;
+            border-radius: 10px;
+            padding-top: 5vh;
+            padding-left: 50vw;
+            
+        }
+        .signupdiv{
+            position:relative;
+            border-radius: 10px;
+            padding-top: 5vh;
+            padding-left: 50vw;
+        }
         body{
             position: relative;
             min-height: 100vh;
@@ -37,6 +50,12 @@
             margin: 20px auto;
             padding: 0 20px;
 
+        }
+        .page_content{
+            position:relative;
+            border-radius: 10px;
+            padding-top: 5vh;
+            padding-left: 50vw;
         }
         footer{
             position: fixed;

@@ -2,20 +2,22 @@
 <html lang="en">
 <%- include('./partials/header.ejs') %>
 <body>
-    <%- include('./partials/nav.ejs') %>
-    <h1> Login</h1>
-    <form>
-        <label for="email">Email:</label>
-        <input type="text" name="email" required>
-        <div class="email error"></div>
+    <%- include('./partials/sidenav.ejs') %>
+    <div class="LoginDiv">
+      <h1> Login</h1>
+      <form>
+          <label for="email">Email:</label>
+          <input type="text" name="email" required>
+          <div class="email error"></div>
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-        <div class="password error"></div>
+          <label for="password">Password:</label>
+          <input type="password" name="password" required>
+          <div class="password error"></div>
 
-        <button> Login </button>
+          <button> Login </button>
 
-    </form>
+      </form>
+  </div>
     <script>
         const form = document.querySelector('form');
        

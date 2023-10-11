@@ -2,7 +2,8 @@
 <html lang="en">
 <%- include('./partials/header.ejs') %>
 <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/sidenav.ejs') %>
+    <div class="page_content">
     <div class="create_course">
         <form action="/updateCourse/<%= course.id%>" method="POST">
             <label for="CourseName"> Title of course</label>
@@ -16,6 +17,7 @@
             <button> Update Course</button>
         </form>
     </div>
+</div>
 </body>
 <%- include('./partials/footer.ejs') %>
 </html>

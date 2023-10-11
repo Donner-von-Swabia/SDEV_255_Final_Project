@@ -1,20 +1,20 @@
 <%- include('partials/header'); -%>
-
-<form action="/signup">
-  <h2>Sign up</h2>
-  <label for="email">Email</label>
-  <input type="text" name="email" required />
-  <div class="email error"></div>
-  <label for="password">Password</label>
-  <input type="password" name="password" required />
-  <div class="password error"></div>
-  <div class="IsTeacher">
-    <label for="IsTeacher"> Are you a teacher or student?</label>
-    <input type="checkbox" name="IsTeacher">
-  </div>
-  <button>Sign up</button>
-</form>
-
+<div class="signupdiv">
+  <form action="/signup">
+    <h2>Sign up</h2>
+    <label for="email">Email</label>
+    <input type="text" name="email" required />
+    <div class="email error"></div>
+    <label for="password">Password</label>
+    <input type="password" name="password" required />
+    <div class="password error"></div>
+    <div class="IsTeacher">
+      <label for="IsTeacher"> Are you a teacher or student?</label>
+      <input type="checkbox" name="IsTeacher">
+    </div>
+    <button>Sign up</button>
+  </form>
+</div>
 <%- include('partials/footer'); -%>
 
 <script>

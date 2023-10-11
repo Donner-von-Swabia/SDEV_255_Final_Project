@@ -2,20 +2,22 @@
 <html lang="en">
 <%- include('./partials/header.ejs') %>
 <body>
-    <%- include('./partials/nav.ejs') %>
-    <div class="course_content">
-        <h2><%= course.CourseName %></h2>
-        <h3><%= course.CourseNumber %></h3>
-        <div class="course_details">
-            <p><%= course.CourseDescription %></p>
-        </div>
-        <h2>
-          Credit Hours
-        </h2>
-        <p><%= course.CreditHours%></p>
-        <a class="delete" data-doc="<%= course.id %>">Delete</a>
-        <a class="update" href="/updateCourse/<%=course.id%>">Update</a>
-    </div>
+    <%- include('./partials/sidenav.ejs') %>
+    <div class="page_content">
+      <div class="course_content">
+          <h2><%= course.CourseName %></h2>
+          <h3><%= course.CourseNumber %></h3>
+          <div class="course_details">
+              <p><%= course.CourseDescription %></p>
+          </div>
+          <h2>
+            Credit Hours
+          </h2>
+          <p><%= course.CreditHours%></p>
+          <a class="delete" data-doc="<%= course.id %>">Delete</a>
+          <a class="update" href="/updateCourse/<%=course.id%>">Update</a>
+      </div>
+  </div>
 </body>
 <%- include('./partials/footer.ejs') %>
 <script>
