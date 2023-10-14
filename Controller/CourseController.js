@@ -188,11 +188,9 @@ module.exports.removeCourse = (req,res) =>{
         })}
 
 module.exports.search_post = (req,res) =>{
-    console.log(req.body.search)
     search_value = req.body.search
     Course.find({CourseNumber:search_value})
     .then(result =>{
-        console.log(result)
         res.render('student',{course:result, title:'Student',siteName:'A Class Coding: Students'});
 })
    
