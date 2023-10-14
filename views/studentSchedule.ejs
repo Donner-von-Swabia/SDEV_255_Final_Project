@@ -6,8 +6,11 @@
     <div class="page_content">
     <% if (course.length > 0){ %>
         <% course.forEach(course =>{  %>
-        
-            <h2 class="Course Id:"><%= course %></h2>
+            <h2 class="Course Name"><%= course[0] %></h2>
+            <h2 class="Course Number"><%= course[1] %></h2>
+            <h3 class="Course Des"><%= course[2] %></h3>
+            <button>Remove Course</button>
+
             </a>
         <% }) %>
     <% }else{ %>

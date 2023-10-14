@@ -128,7 +128,6 @@ module.exports.addCourse_get = (req,res) =>{
     const UserID = req.cookies.Id;
     Course.findById(id)
     .then(result =>{
-        /*
         const cName = result.CourseName;
         const cNum = result.CourseNumber;
         const cDes = result.CourseDescription;
@@ -137,7 +136,7 @@ module.exports.addCourse_get = (req,res) =>{
         User.findByIdAndUpdate(UserID,{$push:{courses:body}})
             .then(result =>{
                 res.redirect('/studentSchedule')
-            })*/
+            })
             })}
     
 
@@ -146,15 +145,14 @@ module.exports.student_schedule_get = (req,res) =>{
     let body = []
     User.findById(UserID)
     .then(result =>{
-        console.log(result.courses)
+        var body = []
         result.courses.forEach(course =>{
-            Course.findById(course)
-                .then(result =>{
-                    body.push(result)
-                })})})
-    .then(result =>{
-        console.log(body);
-        res.render('studentSchedule',{course:'',title:'Teacher',siteName:'A Class Coding: Teachers'}); 
+            const courses = course.split('-')
+            body.push(courses)
+        })
+        console.log(body)
+        res.render('studentSchedule',{course:body,title:'Teacher',siteName:'A Class Coding: Teachers'});
+         
     })
     .catch((err) =>{
         console.log(err);
