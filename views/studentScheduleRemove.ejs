@@ -4,13 +4,12 @@
 <body>
     <%- include('./partials/sidenav.ejs') %>
     <div class="page_content">
-    <a class="removeCourse" href="studentScheduleDelete"> Remove Course </a>
     <% if (course.length > 0){ %>
         <% course.forEach(course =>{  %>
+            <a class="RemoveCourse" href="/studentRemoveCourse/<%=course%>">
             <h2 class="Course Name"><%= course[0] %></h2>
             <h2 class="Course Number"><%= course[1] %></h2>
             <h3 class="Course Des"><%= course[2] %></h3>
-            
             </a>
         <% }) %>
     <% }else{ %>

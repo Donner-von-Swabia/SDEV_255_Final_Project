@@ -24,4 +24,7 @@ router.get('/student',StudentAuth,courseController.student_get)
 router.get('/student/:id',StudentAuth,courseController.student_details_get)
 router.get('/addCourse/:id',StudentAuth,courseController.addCourse_get)
 router.get('/studentSchedule', StudentAuth, courseController.student_schedule_get)
+router.get('/studentScheduleDelete',StudentAuth, courseController.SSD)
+router.get('/studentRemoveCourse/:name',StudentAuth,courseController.removeCourse)
+router.post('/search_course',StudentAuth, courseController.search_post)
 module.exports = router;

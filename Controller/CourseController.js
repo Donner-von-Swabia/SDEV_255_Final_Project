@@ -116,7 +116,7 @@ module.exports.student_details_get = (req,res) => {
     const id = req.params.id;
     Course.findById(id)
     .then(result=>{
-        res.render('studentCourse', {course:result,title:'Teacher',siteName:'A Class Coding: Teachers'});
+        res.render('studentCourse', {course:result,title:'Courses',siteName:'A Class Coding: Teachers'});
     })
     .catch((err) => {
         console.log(err);
@@ -132,7 +132,6 @@ module.exports.addCourse_get = (req,res) =>{
         const cNum = result.CourseNumber;
         const cDes = result.CourseDescription;
         const body = cName + "-" + cNum + "-" + cDes;
-        console.log(body)
         User.findByIdAndUpdate(UserID,{$push:{courses:body}})
             .then(result =>{
                 res.redirect('/studentSchedule')
@@ -142,7 +141,24 @@ module.exports.addCourse_get = (req,res) =>{
 
 module.exports.student_schedule_get = (req,res) =>{
     const UserID = req.cookies.Id;
-    let body = []
+    User.findById(UserID)
+    .then(result =>{
+        var body = []
+        result.courses.forEach(course =>{
+            const courses = course.split('-')
+            body.push(courses)
+            
+        })
+        
+        res.render('studentSchedule',{course:body,title:'Student Schedule',siteName:'A Class Coding: Teachers'});
+         
+    })
+    .catch((err) =>{
+        console.log(err);
+    })
+}
+module.exports.SSD = (req,res) =>{
+    const UserID = req.cookies.Id;
     User.findById(UserID)
     .then(result =>{
         var body = []
@@ -150,11 +166,34 @@ module.exports.student_schedule_get = (req,res) =>{
             const courses = course.split('-')
             body.push(courses)
         })
-        console.log(body)
-        res.render('studentSchedule',{course:body,title:'Teacher',siteName:'A Class Coding: Teachers'});
+        
+        res.render('studentScheduleRemove',{course:body,title:'Student Schedule',siteName:'A Class Coding: Teachers'});
          
     })
     .catch((err) =>{
         console.log(err);
     })
+}
+module.exports.removeCourse = (req,res) =>{
+    const name = req.params.name
+    let holder = name.replaceAll(',','-');
+    console.log(holder)
+    const UserID = req.cookies.Id;
+    User.updateOne({_id:UserID},{$pull:{courses:holder}})
+        .then(result=>{
+            res.redirect('/studentSchedule')
+        })
+        .catch((err) =>{
+            console.log(err);
+        })}
+
+module.exports.search_post = (req,res) =>{
+    console.log(req.body.search)
+    search_value = req.body.search
+    Course.find({CourseNumber:search_value})
+    .then(result =>{
+        console.log(result)
+        res.render('student',{course:result, title:'Student',siteName:'A Class Coding: Students'});
+})
+   
 }
