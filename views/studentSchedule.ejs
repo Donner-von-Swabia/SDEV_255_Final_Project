@@ -6,9 +6,8 @@
     <div class="page_content">
     <% if (course.length > 0){ %>
         <% course.forEach(course =>{  %>
-            <a class="single" href="/student/<%= course.id %>">
-                <h2 class="title"><%= course.CourseName %></h2>
-                <h3 class="num"><%= course.CourseNumber %></h3>
+        
+            <h2 class="Course Id:"><%= course %></h2>
             </a>
         <% }) %>
     <% }else{ %>

@@ -52,13 +52,18 @@
 
         }
         .page_content{
-            position:relative;
+            position:fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%,-50%);
             border-radius: 10px;
-            padding-top: 5vh;
-            padding-left: 50vw;
         }
         footer{
+            
             position: fixed;
+            top:90%;
+            left: 50%;
+            transform: translate(-50%,-50%);
             padding-left: 30vw;
             color:aliceblue;
             margin: 80px auto 20px;

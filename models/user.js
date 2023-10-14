@@ -19,7 +19,8 @@ const UserSchema = new Schema({
     },
     IsTeacher:{
         type: Boolean
-    }
+    },
+    courses:[String]
 });
 
 

@@ -1,4 +1,5 @@
 const Course = require('../models/course');
+const User = require('../models/user');
 const {requireAuth} = require('../Middleware/AuthMW');
 
 
@@ -100,5 +101,62 @@ module.exports.teacher_details_delete = (req,res) =>{
 };
 
 module.exports.student_get = (req,res) => {
-    res.render('student',{title:'Student',siteName:'A Class Coding: Students'})
+    Course.find().sort({createAt: -1})
+    .then(result=>{
+        res.render('student',{course:result, title:'Student',siteName:'A Class Coding: Students'});
+        
+    })
+    .catch(err => {
+        console.log(err);
+    })
+    
 };
+
+module.exports.student_details_get = (req,res) => {
+    const id = req.params.id;
+    Course.findById(id)
+    .then(result=>{
+        res.render('studentCourse', {course:result,title:'Teacher',siteName:'A Class Coding: Teachers'});
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+};
+
+module.exports.addCourse_get = (req,res) =>{
+    const id= req.params.id;
+    const UserID = req.cookies.Id;
+    Course.findById(id)
+    .then(result =>{
+        /*
+        const cName = result.CourseName;
+        const cNum = result.CourseNumber;
+        const cDes = result.CourseDescription;
+        const body = cName + "-" + cNum + "-" + cDes;
+        console.log(body)
+        User.findByIdAndUpdate(UserID,{$push:{courses:body}})
+            .then(result =>{
+                res.redirect('/studentSchedule')
+            })*/
+            })}
+    
+
+module.exports.student_schedule_get = (req,res) =>{
+    const UserID = req.cookies.Id;
+    let body = []
+    User.findById(UserID)
+    .then(result =>{
+        console.log(result.courses)
+        result.courses.forEach(course =>{
+            Course.findById(course)
+                .then(result =>{
+                    body.push(result)
+                })})})
+    .then(result =>{
+        console.log(body);
+        res.render('studentSchedule',{course:'',title:'Teacher',siteName:'A Class Coding: Teachers'}); 
+    })
+    .catch((err) =>{
+        console.log(err);
+    })
+}

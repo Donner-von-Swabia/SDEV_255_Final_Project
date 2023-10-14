@@ -21,6 +21,7 @@ router.delete('/teacher/:id',TeacherAuth, courseController.teacher_details_delet
 
 //Student Page
 router.get('/student',StudentAuth,courseController.student_get)
-
-
+router.get('/student/:id',StudentAuth,courseController.student_details_get)
+router.get('/addCourse/:id',StudentAuth,courseController.addCourse_get)
+router.get('/studentSchedule', StudentAuth, courseController.student_schedule_get)
 module.exports = router;
